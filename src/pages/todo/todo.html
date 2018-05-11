@@ -1,0 +1,44 @@
+<ion-header >
+  <ion-navbar color="Indigoo">
+    <ion-title><ion-icon name="arrow-round-back"></ion-icon>
+      Scrum Working
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="pane" style="padding: 8px;">
+  <ion-card *ngFor="let row of page_data">
+    <div *ngIf="row.message == row.message">
+              
+      <font size="4">{{row.message}}</font><br>
+      <!--Story : {{row.story}}<br>-->
+      Date : {{row.created_time.substring(0,10)}}<br>
+      <!--ID : {{row.id}}-->
+  
+      <div *ngFor="let cow of comment_data">
+        <div *ngIf="cow.id == row.id">
+            <!--ID : {{cow.id}}-->
+            <div *ngIf="cow?.comments">
+              <div *ngFor="let cow1 of cow.comments.data">
+                <!--<div *ngIf="cow1?.from">ชื่อผู้ Comments : {{cow1?.from.name}}</div>
+                <div *ngIf="cow1?.from">รหัสผู้ Comment : {{cow1?.from.id}}</div>
+                <div>{{cow1.created_time}}</div>-->
+                <div>Comment : {{cow1.message}}</div>
+                <!--<div>รหัสข้อความ : {{cow1.id}}</div>-->
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+  
+</ion-content>
+
+<style type="text/css">
+  .pane{
+    background:url('assets/imgs/backghome.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
+</style>

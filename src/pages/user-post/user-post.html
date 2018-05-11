@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Scrum Working
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="padding: 8px;">
+  <ion-card *ngFor="let row of page_data">
+    <div *ngIf="row.message == row.message">
+              
+      <ion-card-header>
+        {{row.message}}
+      </ion-card-header>
+      <ion-card-content>
+        <!--Story : {{row.story}}<br>-->
+        Date : {{row.created_time.substring(0,10)}}<br>
+        ID : {{row.id}}
+      </ion-card-content>
+        
+      <div *ngFor="let cow of comment_data">
+        <div *ngIf="cow.id == row.id">
+          <ion-card-content>
+            ID : {{cow.id}}
+            <div *ngIf="cow?.comments">
+              <div *ngFor="let cow1 of cow.comments.data">
+                <!--<div *ngIf="cow1?.from">ชื่อผู้ Comments : {{cow1?.from.name}}</div>
+                <div *ngIf="cow1?.from">รหัสผู้ Comment : {{cow1?.from.id}}</div>
+                <div>{{cow1.created_time}}</div>-->
+                <div>Comment : {{cow1.message}}</div>
+                <!--<div>รหัสข้อความ : {{cow1.id}}</div>-->
+              </div>
+            </div>
+          </ion-card-content>
+        </div>
+      </div>
+        
+    </div>
+  </ion-card>
+  
+</ion-content>
